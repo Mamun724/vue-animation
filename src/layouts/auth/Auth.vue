@@ -1,7 +1,3 @@
-<script setup>
-import BackgroundAnimation from "@/components/BackgroundAnimation.vue";
-</script>
-
 <template>
   <v-app>
     <BackgroundAnimation/>
@@ -18,6 +14,10 @@ import BackgroundAnimation from "@/components/BackgroundAnimation.vue";
     </v-main>
   </v-app>
 </template>
+
+<script setup>
+import BackgroundAnimation from "@/components/BackgroundAnimation.vue";
+</script>
 
 <style scoped>
 

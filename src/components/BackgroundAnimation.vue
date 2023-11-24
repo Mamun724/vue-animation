@@ -1,3 +1,9 @@
+<template>
+  <div id="background" ref="bg">
+    <canvas ref="canvas" id="c"></canvas>
+  </div>
+</template>
+
 <script setup>
 import {runAnimation} from "@/components/animation";
 import {onMounted, ref} from "vue";
@@ -7,12 +13,6 @@ onMounted(() => {
   runAnimation(canvas.value);
 });
 </script>
-
-<template>
-  <div id="background" ref="bg">
-    <canvas ref="canvas" id="c"></canvas>
-  </div>
-</template>
 
 <style scoped>
 #background {

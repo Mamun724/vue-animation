@@ -1,54 +1,3 @@
-<script setup>
-import Auth from "@/layouts/auth/Auth.vue";
-import {useRoute, useRouter} from "vue-router";
-import {constants} from "@/constants";
-import {useStore} from "vuex";
-import {ref} from "vue";
-
-const store = useStore();
-const router = useRouter();
-const route = useRoute();
-
-const validForm = ref(false);
-const submittedOnce = ref(false);
-const authFailed = ref(false);
-const loginData = ref({
-  email: '',
-  password: ''
-});
-
-const rules = {
-  required: value => !!value || 'Required.',
-  minimumPasswordLength: value => value.length >= 6 || "Password should be at least 6 characters.",
-  minLength: value => value.length >= 2 || "At least 2 characters required.",
-  maxLength: value => value.length <= 255 || "At most 255 characters allowed.",
-  email: value => constants.validEmailRegex.test(value) || "Email is not valid."
-};
-
-const showPassword = ref(false);
-
-function togglePasswordVisibility() {
-  showPassword.value = !showPassword.value;
-}
-
-const errorRedirect = !!route.query["errorRedirect"];
-
-async function login() {
-  submittedOnce.value = true;
-  if (!validForm.value) {
-    return;
-  }
-
-  const loggedInUser = await store.dispatch("loginUser", loginData.value);
-  if (!loggedInUser) {
-    authFailed.value = true;
-    return;
-  }
-
-  await router.push({path: "/"});
-}
-</script>
-
 <template>
   <auth>
     <v-card>
@@ -101,6 +50,57 @@ async function login() {
     </v-card>
   </auth>
 </template>
+
+<script setup>
+import Auth from "@/layouts/auth/Auth.vue";
+import {useRoute, useRouter} from "vue-router";
+import {constants} from "@/constants";
+import {useStore} from "vuex";
+import {ref} from "vue";
+
+const store = useStore();
+const router = useRouter();
+const route = useRoute();
+
+const validForm = ref(false);
+const submittedOnce = ref(false);
+const authFailed = ref(false);
+const loginData = ref({
+  email: '',
+  password: ''
+});
+
+const rules = {
+  required: value => !!value || 'Required.',
+  minimumPasswordLength: value => value.length >= 6 || "Password should be at least 6 characters.",
+  minLength: value => value.length >= 2 || "At least 2 characters required.",
+  maxLength: value => value.length <= 255 || "At most 255 characters allowed.",
+  email: value => constants.validEmailRegex.test(value) || "Email is not valid."
+};
+
+const showPassword = ref(false);
+
+function togglePasswordVisibility() {
+  showPassword.value = !showPassword.value;
+}
+
+const errorRedirect = !!route.query["errorRedirect"];
+
+async function login() {
+  submittedOnce.value = true;
+  if (!validForm.value) {
+    return;
+  }
+
+  const loggedInUser = await store.dispatch("loginUser", loginData.value);
+  if (!loggedInUser) {
+    authFailed.value = true;
+    return;
+  }
+
+  await router.push({path: "/"});
+}
+</script>
 
 <style scoped>
 
