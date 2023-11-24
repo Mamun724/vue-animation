@@ -5,8 +5,8 @@ export function runAnimation(canvas) {
 
   const fov = 1;
   const aspect = getAspectRatio();
-  const near = 190;
-  const far = 205;
+  const near = 90;
+  const far = 305;
   const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
   camera.position.z = 200;
   camera.lookAt(0, 0, 0);
@@ -22,22 +22,22 @@ export function runAnimation(canvas) {
   const texture1 = textureLoader.load('https://threejs.org/manual/examples/resources/images/flower-1.jpg');
   const texture2 = textureLoader.load('https://threejs.org/manual/examples/resources/images/flower-2.jpg');
 
-  function makeInstance(geometry, map, x) {
+  function makeInstance(geometry, map, x, z) {
     const material = new THREE.MeshBasicMaterial({map});
 
     const cube = new THREE.Mesh(geometry, material);
     scene.add(cube);
 
     cube.position.x = x;
-    cube.position.z = Math.random() * 10;
+    cube.position.z = z;
 
     return cube;
   }
 
   const cubes = [
-    makeInstance(geometry, texture1, -3),
-    makeInstance(geometry, texture2, 0),
-    makeInstance(geometry, texture1, 3)
+    makeInstance(geometry, texture1, -3, -50),
+    makeInstance(geometry, texture2, 0, 50),
+    makeInstance(geometry, texture1, 3, 100)
   ];
 
   const axesHelper = new THREE.AxesHelper();
