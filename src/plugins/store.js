@@ -11,13 +11,15 @@ export default createStore({
         password: "123456",
         profilePicture: "/assets/user1.jfif"
       }
-    ]
+    ],
+    showSplashScreen: true
   },
   getters: {
     findUser: (state) => {
       return (email) => state.registeredUsers.find((user) => user.email === email);
     },
-    isAuthenticated: (state) => state.authenticatedUser
+    isAuthenticated: (state) => state.authenticatedUser,
+    showSplashScreen: (state) => state.showSplashScreen
   },
   mutations: {
     registerUser(state, user) {
@@ -25,7 +27,8 @@ export default createStore({
     },
     setAuthUser(state, authUser) {
       state.authenticatedUser = authUser;
-    }
+    },
+    setShowSplashScreen: (state, payload) => state.showSplashScreen = payload,
   },
   actions: {
     async registerUser({commit}, user) {

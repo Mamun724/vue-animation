@@ -1,13 +1,13 @@
 <template>
   <v-app>
     <div class="splash-screen">
-      <CubesOfCubeAnimationWithTres/>
+      <BackgroundAnimation/>
     </div>
   </v-app>
 </template>
 
 <script setup>
-import CubesOfCubeAnimationWithTres from "@/components/CubesOfCubeAnimationWithTres.vue";
+import BackgroundAnimation from "@/components/BackgroundAnimation.vue";
 </script>
 
 <style scoped>
