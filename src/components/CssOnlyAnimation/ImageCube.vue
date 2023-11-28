@@ -1,12 +1,30 @@
 <template>
   <div class="cuboid">
-    <div v-for="i in 6" class="cuboid__side" :key="i">
-      <img class="side-image" :src="`/images/flower-${Math.ceil(Math.random()*6)}.jpg`" :alt="`flower-${1}`">
+    <div class="cuboid__side">
+      <video class="side-video" :src="getRandomVideo()" muted autoplay loop>
+        Browser not supported
+      </video>
     </div>
+<!--    <div v-for="i in 5" class="cuboid__side" :key="i">
+      <img class="side-image" :src="`/images/flower-${Math.ceil(Math.random()*6)}.jpg`" :alt="`flower-${1}`">
+    </div>-->
   </div>
 </template>
 
 <script setup>
+const getRandomVideo = () => {
+  const videoTypeCount = {
+//    "flv": 1,
+    "mp4": 4,
+//    "webm": 1,
+//    "wmv": 2
+  };
+  const types = Object.keys(videoTypeCount);
+  const type = types[Math.floor(Math.random() * types.length)];
+  const path = `/videos/video-${Math.ceil(Math.random() * videoTypeCount[type])}.${type}`;
+
+  return path;
+}
 </script>
 
 <style>
@@ -17,7 +35,7 @@
   transform-style: preserve-3d;
   position: absolute;
   font-size: 1rem;
-  transform: translate3d(0, 0, calc(var(--width)/2));
+  transform: translate3d(0, 0, calc(var(--width) / 2));
   animation: cubeReverseAnimation 15s linear infinite;
 }
 
@@ -57,6 +75,12 @@
 .cuboid__side > .side-image {
   width: 100%;
   height: 100%;
+}
+
+.cuboid__side > .side-video {
+  width: var(--width);
+  height: var(--width);
+  object-fit: fill;
 }
 
 @keyframes cubeReverseAnimation {
