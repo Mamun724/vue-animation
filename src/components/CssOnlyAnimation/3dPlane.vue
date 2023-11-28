@@ -19,12 +19,12 @@ import ImageCube from "@/components/CssOnlyAnimation/ImageCube.vue";
   --translate-x: 20%;
   --translate-y: 5%;
 
-  max-height: 33%;
-  height: 33%;
+  max-height: 25%;
+  height: 25%;
   width: 25%;
   transform-style: preserve-3d;
   transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y)) rotateX(90deg) translate3d(var(--translate-x), var(--translate-y), 0);
-  animation: rotateSystem 45s infinite linear;
+  animation: rotateSystem 15s infinite linear;
 }
 
 @keyframes rotateSystem {

@@ -18,7 +18,7 @@
   position: absolute;
   font-size: 1rem;
   transform: translate3d(0, 0, calc(var(--width)/2));
-  animation: cubeReverseAnimation 60s linear infinite;
+  animation: cubeReverseAnimation 15s linear infinite;
 }
 
 .cuboid > div {

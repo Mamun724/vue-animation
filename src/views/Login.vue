@@ -1,7 +1,7 @@
 <template>
   <auth>
-    <v-card>
-      <v-card-title class="pb-0">Login</v-card-title>
+    <v-card style="background: transparent">
+      <v-card-title class="pb-0 text-center">Login</v-card-title>
       <v-form @submit.prevent="login" v-model="validForm">
         <v-container class="px-4">
           <v-alert
@@ -41,9 +41,11 @@
             :type="showPassword ? 'text' : 'password'"
             :rules="[rules.required, rules.minimumPasswordLength, rules.maxLength]"
             @click:append-inner="togglePasswordVisibility"/>
-          <v-row justify="end" align="center" class="px-3 pb-3 pt-1">
+          <v-row justify="center" align="center" class="px-3 pb-3 pt-1">
+            <v-btn variant="outlined" color="navajowhite" type="submit">Login</v-btn>
+          </v-row>
+          <v-row justify="center" align="center" class="px-3 pb-3 pt-1">
             <span>Not registered? <router-link to="/signup">Sign Up</router-link></span>
-            <v-btn class="ml-auto" color="primary" type="submit">Login</v-btn>
           </v-row>
         </v-container>
       </v-form>

@@ -2,6 +2,9 @@
   <v-app>
     <div class="splash-screen">
       <CssOnlyAnimation/>
+      <div class="splash-content">
+        <h1>Splash Screen</h1>
+      </div>
     </div>
   </v-app>
 </template>
@@ -18,5 +21,12 @@ import CssOnlyAnimation from "@/components/CssOnlyAnimation/CssOnlyAnimation.vue
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background: linear-gradient(-20deg, navajowhite, whitesmoke);
+}
+
+.splash-screen > .splash-content {
+  position: fixed;
+  top: 0;
+  padding: 20px;
 }
 </style>

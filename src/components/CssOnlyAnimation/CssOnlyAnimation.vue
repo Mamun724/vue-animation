@@ -2,7 +2,6 @@
   <div class="scene">
     <Plane/>
     <Plane/>
-    <Plane/>
   </div>
 </template>
 
