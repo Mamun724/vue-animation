@@ -1,13 +1,13 @@
 <template>
   <v-app>
     <div class="splash-screen">
-      <BackgroundAnimation/>
+      <CssOnlyAnimation/>
     </div>
   </v-app>
 </template>
 
 <script setup>
-import BackgroundAnimation from "@/components/BackgroundAnimation.vue";
+import CssOnlyAnimation from "@/components/CssOnlyAnimation/CssOnlyAnimation.vue";
 </script>
 
 <style scoped>
