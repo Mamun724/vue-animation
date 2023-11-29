@@ -4,7 +4,8 @@
     :lines="false">
     <v-list-item
       v-for="(item, index) in data"
-      class="pl-4 selected"
+      class="pl-4"
+      :class="{'bg-primary-darken-2': selectedSideMenu.link === item.link}"
       @click="itemClick(item)"
       :key="index">
       {{ item.text }}
@@ -16,7 +17,8 @@
 </template>
 
 <script setup>
-import {useTheme} from "vuetify";
+import {useRoute, useRouter} from "vue-router";
+import {effect, ref} from "vue";
 
 const data = [
   {
@@ -46,16 +48,22 @@ const data = [
   },
 ];
 
-const itemClick = (item) => {
-  console.log(item.link);
-}
+const route = useRoute();
+const router = useRouter();
 
-const theme = useTheme()
-console.log(theme.computedThemes.value);
+const selectedSideMenu = ref(data.find(item => item.link === route.path));
+
+effect(() => {
+  selectedSideMenu.value = data.find(item => item.link === route.path);
+});
+
+const itemClick = (item) => {
+  router.push({path: item.link});
+}
 </script>
 
 <style>
-.selected {
-  background-color: var(--v-theme-primary) !important;
+.v-list-item--variant-text.selected {
+  /* background-color: var(--v-theme-primary); TODO this doesn't work, used auto generated class name above: bg-primary-darken-2 */
 }
 </style>

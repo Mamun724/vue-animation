@@ -1,6 +1,8 @@
 // Composables
 import {createRouter, createWebHistory} from 'vue-router'
 import store from "@/plugins/store";
+import Profile from "@/components/Profile.vue";
+import NotFound from "@/views/NotFound.vue";
 
 const routes = [
   {
@@ -22,6 +24,11 @@ const routes = [
           }
         }
       },
+      {
+        path: 'profile',
+        name: 'Profile',
+        component: Profile
+      }
     ],
   },
   {
@@ -39,6 +46,11 @@ const routes = [
     name: "splash",
     component: () => import("@/components/SplashScreen.vue")
   },
+  {
+    path: "/:pathMatch(.*)*",
+    name: 'not-found',
+    component: NotFound
+  }
 ]
 
 const router = createRouter({
