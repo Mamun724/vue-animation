@@ -5,7 +5,7 @@ import store from "@/plugins/store";
 const routes = [
   {
     path: '/',
-    component: () => import('@/layouts/default/Default.vue'),
+    component: () => import('@/layouts/AppLayout.vue'),
     children: [
       {
         path: '',

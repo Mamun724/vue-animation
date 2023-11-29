@@ -2,7 +2,13 @@ import {createStore} from "vuex";
 
 export default createStore({
   state: {
-    authenticatedUser: null,
+    authenticatedUser: {
+      fullName: "User 1",
+      username: "user1",
+      email: "user1@email.com",
+      password: "123456",
+      profilePicture: "/assets/user1.jfif"
+    },
     registeredUsers: [
       {
         fullName: "User 1",
