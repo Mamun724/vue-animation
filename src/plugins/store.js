@@ -7,7 +7,7 @@ export default createStore({
       username: "user1",
       email: "user1@email.com",
       password: "123456",
-      profilePicture: "/assets/user1.jfif"
+      profilePicture: "/images/flower-2.jpg"
     },
     registeredUsers: [
       {
@@ -15,7 +15,7 @@ export default createStore({
         username: "user1",
         email: "user1@email.com",
         password: "123456",
-        profilePicture: "/assets/user1.jfif"
+        profilePicture: "/images/flower-2.jpg"
       }
     ],
     showSplashScreen: true
@@ -25,7 +25,8 @@ export default createStore({
       return (email) => state.registeredUsers.find((user) => user.email === email);
     },
     isAuthenticated: (state) => state.authenticatedUser,
-    showSplashScreen: (state) => state.showSplashScreen
+    showSplashScreen: (state) => state.showSplashScreen,
+    authenticatedUser: (state) => state.authenticatedUser
   },
   mutations: {
     registerUser(state, user) {
@@ -35,6 +36,7 @@ export default createStore({
       state.authenticatedUser = authUser;
     },
     setShowSplashScreen: (state, payload) => state.showSplashScreen = payload,
+    logout: (state) => state.authenticatedUser = null
   },
   actions: {
     async registerUser({commit}, user) {
