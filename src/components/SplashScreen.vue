@@ -1,13 +1,16 @@
 <template>
   <v-app>
     <div class="splash-screen">
-      <BackgroundAnimation/>
+      <CssOnlyAnimation/>
+      <div class="splash-content">
+        <h1>Splash Screen</h1>
+      </div>
     </div>
   </v-app>
 </template>
 
 <script setup>
-import BackgroundAnimation from "@/components/BackgroundAnimation.vue";
+import CssOnlyAnimation from "@/components/CssOnlyAnimation/CssOnlyAnimation.vue";
 </script>
 
 <style scoped>
@@ -18,5 +21,12 @@ import BackgroundAnimation from "@/components/BackgroundAnimation.vue";
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background: linear-gradient(-20deg, rgb(var(--v-theme-gradient-start)), rgb(var(--v-theme-gradient-end)));
+}
+
+.splash-screen > .splash-content {
+  position: fixed;
+  top: 0;
+  padding: 20px;
 }
 </style>

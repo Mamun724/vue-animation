@@ -1,7 +1,7 @@
 <template>
   <auth>
-    <v-card>
-      <v-card-title class="pb-0">Sign Up</v-card-title>
+    <v-card style="background: transparent">
+      <v-card-title class="pb-0 text-center">Sign Up</v-card-title>
       <v-form @submit.prevent="createUser" v-model="validForm">
         <v-container class="px-4">
           <v-alert
@@ -50,9 +50,11 @@
           <v-file-input
             label="Profile Picture"
             v-model="signUpData.profilePicture" placeholder="Profile Picture"/>
-          <v-row justify="end" align="center" class="px-3 pb-3 pt-1">
+          <v-row justify="center" align="center" class="px-3 pb-3 pt-1">
+            <v-btn variant="outlined" color="navajowhite" type="submit">Sign Up</v-btn>
+          </v-row>
+          <v-row justify="center" align="center" class="px-3 pb-3 pt-1">
             <span>Already registered? <router-link to="/login">Login</router-link></span>
-            <v-btn class="ml-auto" color="primary" type="submit">Sign Up</v-btn>
           </v-row>
         </v-container>
       </v-form>

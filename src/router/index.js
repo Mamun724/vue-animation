@@ -1,11 +1,13 @@
 // Composables
 import {createRouter, createWebHistory} from 'vue-router'
 import store from "@/plugins/store";
+import NotFound from "@/views/NotFound.vue";
+import Profile from "@/views/Profile.vue";
 
 const routes = [
   {
     path: '/',
-    component: () => import('@/layouts/default/Default.vue'),
+    component: () => import('@/layouts/AppLayout.vue'),
     children: [
       {
         path: '',
@@ -22,6 +24,11 @@ const routes = [
           }
         }
       },
+      {
+        path: 'profile',
+        name: 'Profile',
+        component: Profile
+      }
     ],
   },
   {
@@ -34,6 +41,16 @@ const routes = [
     name: "signup",
     component: () => import("@/views/Signup.vue")
   },
+  {
+    path: "/splash",
+    name: "splash",
+    component: () => import("@/components/SplashScreen.vue")
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: 'not-found',
+    component: NotFound
+  }
 ]
 
 const router = createRouter({

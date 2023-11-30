@@ -2,24 +2,32 @@ import {createStore} from "vuex";
 
 export default createStore({
   state: {
-    authenticatedUser: null,
+    authenticatedUser: {
+      fullName: "User 1",
+      username: "user1",
+      email: "user1@email.com",
+      password: "123456",
+      profilePicture: "/images/flower-2.jpg"
+    },
     registeredUsers: [
       {
         fullName: "User 1",
         username: "user1",
         email: "user1@email.com",
         password: "123456",
-        profilePicture: "/assets/user1.jfif"
+        profilePicture: "/images/flower-2.jpg"
       }
     ],
-    showSplashScreen: true
+    showSplashScreen: true,
   },
   getters: {
     findUser: (state) => {
       return (email) => state.registeredUsers.find((user) => user.email === email);
     },
     isAuthenticated: (state) => state.authenticatedUser,
-    showSplashScreen: (state) => state.showSplashScreen
+    showSplashScreen: (state) => state.showSplashScreen,
+    authenticatedUser: (state) => state.authenticatedUser,
+    themePrefix: (state) => state.theme,
   },
   mutations: {
     registerUser(state, user) {
@@ -29,6 +37,7 @@ export default createStore({
       state.authenticatedUser = authUser;
     },
     setShowSplashScreen: (state, payload) => state.showSplashScreen = payload,
+    logout: (state) => state.authenticatedUser = null
   },
   actions: {
     async registerUser({commit}, user) {
