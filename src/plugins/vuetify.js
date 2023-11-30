@@ -33,6 +33,8 @@ export default createVuetify({
           "on-background": "#000000",
           "on-surface": "#000000",
           "on-error": "#FFFFFF",
+          "gradient-start": "#FFDEAD",
+          "gradient-end": "#F5F5F5",
         },
       },
       dark: {
@@ -48,6 +50,8 @@ export default createVuetify({
           "on-background": "#FFFFFF",
           "on-surface": "#FFFFFF",
           "on-error": "#000000",
+          "gradient-start": "#002152",
+          "gradient-end": "#0A0A0A",
         },
       },
     },

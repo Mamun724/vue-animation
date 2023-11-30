@@ -15,7 +15,7 @@ import CssOnlyAnimation from "@/components/CssOnlyAnimation/CssOnlyAnimation.vue
   top: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(-20deg, navajowhite, whitesmoke);
+  background: linear-gradient(-20deg, rgb(var(--v-theme-gradient-start)), rgb(var(--v-theme-gradient-end)));
   padding-left: 25%;
 }
 

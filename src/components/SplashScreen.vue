@@ -21,7 +21,7 @@ import CssOnlyAnimation from "@/components/CssOnlyAnimation/CssOnlyAnimation.vue
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: linear-gradient(-20deg, navajowhite, whitesmoke);
+  background: linear-gradient(-20deg, rgb(var(--v-theme-gradient-start)), rgb(var(--v-theme-gradient-end)));
 }
 
 .splash-screen > .splash-content {
