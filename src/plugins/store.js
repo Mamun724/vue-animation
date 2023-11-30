@@ -18,7 +18,8 @@ export default createStore({
         profilePicture: "/images/flower-2.jpg"
       }
     ],
-    showSplashScreen: true
+    showSplashScreen: true,
+    theme: 'pine-',//should be something like: pine- or empty string
   },
   getters: {
     findUser: (state) => {
@@ -26,7 +27,8 @@ export default createStore({
     },
     isAuthenticated: (state) => state.authenticatedUser,
     showSplashScreen: (state) => state.showSplashScreen,
-    authenticatedUser: (state) => state.authenticatedUser
+    authenticatedUser: (state) => state.authenticatedUser,
+    themePrefix: (state) => state.theme,
   },
   mutations: {
     registerUser(state, user) {

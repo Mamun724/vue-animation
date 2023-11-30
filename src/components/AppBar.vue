@@ -56,15 +56,16 @@ const theme = useTheme();
 const store = useStore();
 const router = useRouter();
 
-const darkTheme = ref(theme.global.name.value === 'dark');
+const themePrefix = store.getters.themePrefix;
+const darkTheme = ref(theme.global.name.value === `${themePrefix}dark`);
 
 watch(darkTheme, (darkThemeValue) => {
   if (darkThemeValue) {
-    theme.global.name.value = 'dark'
+    theme.global.name.value = `${themePrefix}dark`
   } else {
-    theme.global.name.value = 'light'
+    theme.global.name.value = `${themePrefix}light`
   }
-})
+});
 
 const toggleNavDrawer = () => {
   emit('ham-clicked')
