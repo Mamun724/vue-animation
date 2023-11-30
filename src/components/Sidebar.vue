@@ -1,13 +1,13 @@
 <template>
   <v-list
-    :nav="true"
-    :lines="false">
+      :nav="true"
+      :lines="false">
     <v-list-item
-      v-for="(item, index) in data"
-      class="pl-4"
-      :class="{'bg-primary-darken-2': selectedSideMenu.link === item.link}"
-      @click="itemClick(item)"
-      :key="index">
+        v-for="(item, index) in data"
+        class="pl-4"
+        :class="{'bg-primary-darken-2': selectedSideMenu.link === item.link}"
+        @click="itemClick(item)"
+        :key="index">
       {{ item.text }}
       <template v-slot:prepend>
         <v-icon>{{ item.icon }}</v-icon>

@@ -22,6 +22,7 @@ onMounted(() => {
   width: 100%;
   height: 100%;
 }
+
 #c {
   display: block;
   width: 100%;

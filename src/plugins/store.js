@@ -19,7 +19,6 @@ export default createStore({
       }
     ],
     showSplashScreen: true,
-    theme: 'pine-',//should be something like: pine- or empty string
   },
   getters: {
     findUser: (state) => {

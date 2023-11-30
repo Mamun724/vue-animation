@@ -1,8 +1,8 @@
 // Composables
 import {createRouter, createWebHistory} from 'vue-router'
 import store from "@/plugins/store";
-import Profile from "@/components/Profile.vue";
 import NotFound from "@/views/NotFound.vue";
+import Profile from "@/views/Profile.vue";
 
 const routes = [
   {

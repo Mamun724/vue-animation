@@ -1,27 +1,27 @@
 <template>
-      <Suspense>
-        <TresCanvas>
-          <TresPerspectiveCamera
-            ref="cameraRef"
-            :args="[60, 1, 5, 25]"
-            :position="[0,0,cameraInitialZCoordinate]"
-            :look-at="[0,0,0]"/>
-          <TresMesh>
-            <TresGroup ref="bigCubeRef">
-              <template v-for="x of [-2, 0, 2]">
-                <template v-for="y of [-2, 0, 2]">
-                  <TresMesh v-for="z of [-2, 0, 2]"
-                            :position="[x,y,z]"
-                            ref="cubesRef">
-                    <TresBoxGeometry :args="[1,1,1]"/>
-                    <TresMeshBasicMaterial :map="Math.random() > 0.5 ? texture[0] : texture[1]"/>
-                  </TresMesh>
-                </template>
-              </template>
-            </TresGroup>
-          </TresMesh>
-        </TresCanvas>
-      </Suspense>
+  <Suspense>
+    <TresCanvas>
+      <TresPerspectiveCamera
+          ref="cameraRef"
+          :args="[60, 1, 5, 25]"
+          :position="[0,0,cameraInitialZCoordinate]"
+          :look-at="[0,0,0]"/>
+      <TresMesh>
+        <TresGroup ref="bigCubeRef">
+          <template v-for="x of [-2, 0, 2]">
+            <template v-for="y of [-2, 0, 2]">
+              <TresMesh v-for="z of [-2, 0, 2]"
+                        :position="[x,y,z]"
+                        ref="cubesRef">
+                <TresBoxGeometry :args="[1,1,1]"/>
+                <TresMeshBasicMaterial :map="Math.random() > 0.5 ? texture[0] : texture[1]"/>
+              </TresMesh>
+            </template>
+          </template>
+        </TresGroup>
+      </TresMesh>
+    </TresCanvas>
+  </Suspense>
 </template>
 
 <script setup>
@@ -33,10 +33,10 @@ const texture = ref([]);
 
 onBeforeMount(async () => {
   texture.value = await useTexture(
-    [
-      'https://threejs.org/manual/examples/resources/images/flower-1.jpg',
-      'https://threejs.org/manual/examples/resources/images/flower-2.jpg'
-    ]
+      [
+        'https://threejs.org/manual/examples/resources/images/flower-1.jpg',
+        'https://threejs.org/manual/examples/resources/images/flower-2.jpg'
+      ]
   );
 });
 

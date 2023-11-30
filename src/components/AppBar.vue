@@ -17,25 +17,17 @@
           </v-btn>
         </template>
         <v-list>
-          <v-list-item>
-            <v-switch
-              title="Toggle Theme"
-              hide-details
-              v-model="darkTheme"
-              color="primary"
-              label="theme"/>
-          </v-list-item>
           <v-list-item
-            @click="$router.push({path: '/profile'})"
-            :class="{'text-primary-lighten-1': $route.path !== '/profile',
+              @click="$router.push({path: '/profile'})"
+              :class="{'text-primary-lighten-1': $route.path !== '/profile',
              'bg-primary-lighten-1 text-on-primary-lighten-1': $route.path === '/profile'}">
             Profile
           </v-list-item>
           <v-list-item
-            append-icon="mdi-logout"
-            variant="text"
-            class="text-primary-lighten-1"
-            @click="logout">
+              append-icon="mdi-logout"
+              variant="text"
+              class="text-primary-lighten-1"
+              @click="logout">
             Logout
           </v-list-item>
         </v-list>
@@ -45,27 +37,13 @@
 </template>
 
 <script setup>
-import {ref, watch} from "vue";
-import {useTheme} from "vuetify";
 import {useStore} from "vuex";
 import {useRouter} from "vue-router";
 
 const emit = defineEmits(['ham-clicked']);
 
-const theme = useTheme();
 const store = useStore();
 const router = useRouter();
-
-const themePrefix = store.getters.themePrefix;
-const darkTheme = ref(theme.global.name.value === `${themePrefix}dark`);
-
-watch(darkTheme, (darkThemeValue) => {
-  if (darkThemeValue) {
-    theme.global.name.value = `${themePrefix}dark`
-  } else {
-    theme.global.name.value = `${themePrefix}light`
-  }
-});
 
 const toggleNavDrawer = () => {
   emit('ham-clicked')
