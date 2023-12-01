@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-app-bar>
-      <AppBar @ham-clicked="show = !show"/>
+      <AppBar v-model:openNavDrawer="show"/>
     </v-app-bar>
     <v-navigation-drawer v-model="show">
       <Sidebar/>
