@@ -16,8 +16,12 @@
 import {ref} from "vue";
 import AppBar from "@/components/AppBar.vue";
 import Sidebar from "@/components/Sidebar.vue";
+import {useStore} from "vuex";
 
 const show = ref(null);
+
+const store = useStore();
+store.commit("setShowSplashScreen", false);
 </script>
 
 <style scoped>
