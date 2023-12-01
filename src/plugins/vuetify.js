@@ -95,8 +95,8 @@ export default createVuetify({
       "pine-dark": {
         dark: true,
         colors: {
-          primary: '#246D20',
-          secondary: '#526657',
+          primary: '#41AE3B',
+          secondary: '#9BA083',
           background: "#282C35",
           surface: "#2F2F2F",
           error: "#C74D4D",
