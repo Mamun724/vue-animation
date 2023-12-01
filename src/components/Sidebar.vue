@@ -5,7 +5,7 @@
     <v-list-item
         v-for="(item, index) in data"
         class="pl-4"
-        :class="{'bg-primary-darken-2': selectedSideMenu.link === item.link}"
+        :class="{'bg-primary-darken-2': selectedSideMenu?.link === item.link}"
         @click="itemClick(item)"
         :key="index">
       {{ item.text }}
@@ -27,19 +27,14 @@ const data = [
     icon: "mdi-home",
   },
   {
-    text: "Timeline",
-    link: "/timeline",
-    icon: "mdi-timeline",
+    text: "Assets",
+    link: "/assets",
+    icon: "mdi-home-group",
   },
   {
-    text: "Calendar",
-    link: "/calendar",
-    icon: "mdi-calendar",
-  },
-  {
-    text: "Profile",
-    link: "/profile",
-    icon: "mdi-account",
+    text: "Memories",
+    link: "/memories",
+    icon: "mdi-image-size-select-actual",
   },
   {
     text: "Settings",
@@ -51,7 +46,7 @@ const data = [
 const route = useRoute();
 const router = useRouter();
 
-const selectedSideMenu = ref(data.find(item => item.link === route.path));
+const selectedSideMenu = ref(null);
 
 effect(() => {
   selectedSideMenu.value = data.find(item => item.link === route.path);
