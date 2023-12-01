@@ -1,6 +1,6 @@
 <template>
   <div class="cuboid">
-    <div class="cuboid__side" :key="i">
+    <div class="cuboid__side">
       <img class="side-image" :src="`/images/flower-${Math.ceil(Math.random()*6)}.jpg`" :alt="`flower`">
     </div>
   </div>
