@@ -7,23 +7,25 @@
       <v-form @submit.prevent="console.log('form submitted')">
         <v-container :fluid="true">
           <v-row>
-            <v-col class="v-col-12 v-col-md-6">
+            <v-col>
               <v-text-field
-                  :type="showPassword ? 'text' : 'password'"
-                  placeholder="Old Password"
-                  variant="outlined"
-                  label="Old Password"
-                  :append-inner-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                  @click:append-inner="togglePasswordVisibility"/>
+                :type="showPassword ? 'text' : 'password'"
+                placeholder="Old Password"
+                variant="outlined"
+                label="Old Password"
+                :append-inner-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                @click:append-inner="togglePasswordVisibility"/>
             </v-col>
-            <v-col class="v-col-12 v-col-md-6 pt-0 pt-md-3">
+          </v-row>
+          <v-row>
+            <v-col>
               <v-text-field
-                  :type="showPassword ? 'text' : 'password'"
-                  placeholder="New Password"
-                  variant="outlined"
-                  label="New Password"
-                  :append-inner-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                  @click:append-inner="togglePasswordVisibility"/>
+                :type="showPassword ? 'text' : 'password'"
+                placeholder="New Password"
+                variant="outlined"
+                label="New Password"
+                :append-inner-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+                @click:append-inner="togglePasswordVisibility"/>
             </v-col>
           </v-row>
           <v-row no-gutters>

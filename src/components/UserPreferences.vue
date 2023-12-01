@@ -1,25 +1,23 @@
 <template>
-  <v-card>
-    <v-card-title>
-      User Preferences
-    </v-card-title>
-    <v-card-text>
-      <v-select
-          :items="themesInfo"
-          v-model="selectedTheme"
-          item-title="name"
-          item-value="slug"
-          variant="solo-filled"
-          label="Color Theme"
-      />
-      <v-switch
-          title="Toggle Theme"
-          hide-details
-          v-model="darkTheme"
-          color="primary"
-          label="Use the dark variant."/>
-    </v-card-text>
-  </v-card>
+  <v-card-title>
+    User Preferences
+  </v-card-title>
+  <v-card-text>
+    <v-select
+      :items="themesInfo"
+      v-model="selectedTheme"
+      item-title="name"
+      item-value="slug"
+      variant="outlined"
+      label="Color Theme"
+    />
+    <v-switch
+      title="Toggle Theme"
+      hide-details
+      v-model="darkTheme"
+      color="primary"
+      label="Use the dark variant."/>
+  </v-card-text>
 </template>
 
 <script setup>

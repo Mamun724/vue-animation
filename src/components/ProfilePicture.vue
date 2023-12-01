@@ -1,16 +1,17 @@
 <template>
-  <v-card class="flex-grow-1">
+  <v-card>
     <v-card-title>Profile Picture</v-card-title>
-    <v-card-text class="position-relative">
-      <v-img class="w-100" :src="profilePictureUrl"/>
-      <v-btn
+    <v-card-text>
+      <v-img class="w-100 position-relative" :src="profilePictureUrl">
+        <v-btn
           variant="text"
           icon
           size="large"
-          class="camera-icon mr-4 mb-4 rounded-0"
+          class="camera-icon rounded-0"
           @click="pickFile">
-        <v-icon size="48px">mdi-camera</v-icon>
-      </v-btn>
+          <v-icon size="48px">mdi-camera</v-icon>
+        </v-btn>
+      </v-img>
       <input type="file" ref="filePicker" class="d-none" @change="previewImage"/>
     </v-card-text>
     <v-card-actions class="justify-center" v-if="profilePicturePath !== profilePictureUrl">
@@ -44,9 +45,9 @@ const uploadProfilePicture = () => {
 
 <style>
 .camera-icon {
-  position: absolute;
+  position: absolute !important;
   bottom: 0;
   right: 0;
-  background-color: rgb(var(--v-theme-surface));
+  background-color: rgb(var(--v-theme-surface)) !important;
 }
 </style>
