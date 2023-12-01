@@ -73,7 +73,7 @@ export default createVuetify({
       "pine-light": {
         colors: {
           primary: '#00C492',
-          secondary: '#C7E2D0',
+          secondary: '#6D6F5F',
           background: "#F8F8F8",
           surface: "#F9F9F9",
           error: "#A41414",
