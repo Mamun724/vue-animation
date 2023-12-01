@@ -27,7 +27,6 @@ export default createStore({
     isAuthenticated: (state) => state.authenticatedUser,
     showSplashScreen: (state) => state.showSplashScreen,
     authenticatedUser: (state) => state.authenticatedUser,
-    themePrefix: (state) => state.theme,
   },
   mutations: {
     registerUser(state, user) {
