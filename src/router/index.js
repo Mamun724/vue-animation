@@ -6,6 +6,8 @@ import Profile from "@/views/Profile.vue";
 import Assets from "@/views/Assets.vue";
 import Memories from "@/views/Memories.vue";
 import Settings from "@/views/Settings.vue";
+import PersonalInformationTab from "@/views/PersonalInformationTab.vue";
+import SecurityTab from "@/views/SecurityTab.vue";
 
 const routes = [
   {
@@ -30,7 +32,19 @@ const routes = [
       {
         path: 'profile',
         name: 'Profile',
-        component: Profile
+        component: Profile,
+        children: [
+          {
+            path: '',
+            name: 'personal-info',
+            component: PersonalInformationTab
+          },
+          {
+            path: 'security',
+            name: 'security',
+            component: SecurityTab
+          },
+        ]
       },
       {
         path: 'assets',

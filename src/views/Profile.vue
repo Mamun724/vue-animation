@@ -5,39 +5,36 @@
       v-model="currentTab">
       <v-tab v-for="tab in tabs"
              :key="tab.slug"
-             :value="tab.slug">
+             :value="tab.slug"
+             @click="goToRoute(tab)">
         {{ tab.name }}
       </v-tab>
     </v-tabs>
-    <v-window v-model="currentTab">
-      <v-window-item v-for="tab in tabs"
-                     :key="tab.slug"
-                     :value="tab.slug">
-
-        <component :is="tab.component"/>
-      </v-window-item>
-    </v-window>
+    <router-view></router-view>
   </div>
 </template>
 
 <script setup>
 import {ref} from "vue";
-import PersonalInformationTab from "@/views/PersonalInformationTab.vue";
-import SecurityTab from "@/views/SecurityTab.vue";
+import {useRoute, useRouter} from "vue-router";
 
 const tabs = [
   {
     slug: 'personal-info',
-    name: 'Personal Info',
-    component: PersonalInformationTab
+    name: 'Personal Info'
   },
   {
     slug: 'security',
-    name: 'Security',
-    component: SecurityTab
+    name: 'Security'
   },
 ];
 
-const currentTab = ref(tabs[0].slug);
+const route = useRoute();
+const currentTab = ref(route.name);
+
+const router = useRouter();
+const goToRoute = (tab) => {
+  router.replace({name: tab.slug});
+}
 </script>
 
