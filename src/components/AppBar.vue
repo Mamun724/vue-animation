@@ -18,32 +18,19 @@
     <template v-slot:activator="{props}">
       <v-btn icon>
         <v-avatar v-bind="props" variant="outlined">
-          <v-img :src="store.getters.authenticatedUser?.profilePicture"/>
+          <v-img :src="authUser?.profilePicture"/>
         </v-avatar>
       </v-btn>
     </template>
-    <v-list>
-      <v-list-item
-        @click="$router.push({path: '/profile'})"
-        :class="{'text-primary-lighten-1': $route.path !== '/profile',
-               'bg-primary-lighten-1 text-on-primary-lighten-1': $route.path === '/profile'}">
-        Profile
-      </v-list-item>
-      <v-list-item
-        append-icon="mdi-logout"
-        variant="text"
-        class="text-primary-lighten-1"
-        @click="logout">
-        Logout
-      </v-list-item>
-    </v-list>
+    <AppBarActionMenu/>
   </v-menu>
 </template>
 
 <script setup>
 import {useStore} from "vuex";
-import {useRouter} from "vue-router";
 import logo from '@/assets/logo.svg';
+import AppBarActionMenu from "@/components/AppbarActionMenu.vue";
+import {computed} from "vue";
 
 const props = defineProps({
   openNavDrawer: {
@@ -53,17 +40,11 @@ const props = defineProps({
 const emit = defineEmits(['update:openNavDrawer']);
 
 const store = useStore();
-const router = useRouter();
+
+const authUser = computed(() => store.getters.authenticatedUser);
 
 const toggleNavDrawer = () => {
   emit('update:openNavDrawer', !props.openNavDrawer);
 }
-const logout = () => {
-  store.commit("logout");
-  router.push({path: "/login"});
-}
 </script>
 
-<style scoped>
-
-</style>
