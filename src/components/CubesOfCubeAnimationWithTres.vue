@@ -2,10 +2,10 @@
   <Suspense>
     <TresCanvas>
       <TresPerspectiveCamera
-          ref="cameraRef"
-          :args="[60, 1, 5, 25]"
-          :position="[0,0,cameraInitialZCoordinate]"
-          :look-at="[0,0,0]"/>
+        ref="cameraRef"
+        :args="[60, 1, 5, 25]"
+        :position="[0,0,cameraInitialZCoordinate]"
+        :look-at="[0,0,0]"/>
       <TresMesh>
         <TresGroup ref="bigCubeRef">
           <template v-for="x of [-2, 0, 2]">
@@ -33,10 +33,10 @@ const texture = ref([]);
 
 onBeforeMount(async () => {
   texture.value = await useTexture(
-      [
-        'https://threejs.org/manual/examples/resources/images/flower-1.jpg',
-        'https://threejs.org/manual/examples/resources/images/flower-2.jpg'
-      ]
+    [
+      'https://threejs.org/manual/examples/resources/images/flower-1.jpg',
+      'https://threejs.org/manual/examples/resources/images/flower-2.jpg'
+    ]
   );
 });
 

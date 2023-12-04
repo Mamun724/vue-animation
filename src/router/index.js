@@ -3,11 +3,20 @@ import {createRouter, createWebHistory} from 'vue-router'
 import store from "@/plugins/store";
 import NotFound from "@/views/NotFound.vue";
 import Profile from "@/views/Profile.vue";
-import Assets from "@/views/Assets.vue";
-import Memories from "@/views/Memories.vue";
+import Users from "@/views/Users.vue";
 import Settings from "@/views/Settings.vue";
 import PersonalInformationTab from "@/views/PersonalInformationTab.vue";
 import SecurityTab from "@/views/SecurityTab.vue";
+import Home from "@/views/Home.vue";
+import Sidebar from "@/components/side-bars/TopLevelSidebar.vue";
+import Projects from "@/views/Projects.vue";
+import ProjectsSidebar from "@/components/side-bars/ProjectSidebar.vue";
+import ProjectWrapper from "@/router/components/ProjectWrapper.vue";
+import Assets from "@/components/projectComponents/Assets.vue";
+import Memories from "@/components/projectComponents/Memories.vue";
+import Signup from "@/views/Signup.vue";
+import Login from "@/views/Login.vue";
+import Members from "@/components/projectComponents/Members.vue";
 
 const routes = [
   {
@@ -27,61 +36,101 @@ const routes = [
         // route level code-splitting
         // this generates a separate chunk (Home-[hash].js) for this route
         // which is lazy-loaded when the route is visited.
-        component: () => import('@/views/Home.vue')
+        components: {
+          default: Home,
+          sidebar: Sidebar,
+        },
       },
       {
-        path: 'profile',
-        name: 'Profile',
-        component: Profile,
+        path: 'projects',
+        name: 'Projects',
+        components: {
+          default: Projects,
+          sidebar: Sidebar,
+        },
+      },
+      {
+        path: 'projects/:projectId',
+        name: 'SingleProject',
+        components: {
+          sidebar: ProjectsSidebar,
+          default: ProjectWrapper,
+        },
         children: [
           {
             path: '',
-            name: 'personal-info',
-            component: PersonalInformationTab
+            name: "ProjectAssets",
+            component: Assets,
           },
           {
-            path: 'security',
-            name: 'security',
-            component: SecurityTab
+            path: 'memories',
+            name: "ProjectMemories",
+            component: Memories,
           },
-        ]
+          {
+            path: 'members',
+            name: "ProjectMembers",
+            component: Members,
+          },
+          {
+            path: 'settings',
+            name: "ProjectSettings",
+            component: Settings,
+          },
+        ],
       },
       {
-        path: 'assets',
-        name: 'Assets',
-        component: Assets
-      },
-      {
-        path: 'memories',
-        name: 'Memories',
-        component: Memories
+        path: 'users',
+        name: 'Users',
+        components: {
+          default: Users,
+          sidebar: Sidebar,
+        },
       },
       {
         path: 'settings',
         name: 'Settings',
-        component: Settings
-      }
+        components: {
+          default: Settings,
+          sidebar: Sidebar,
+        },
+      },
+      {
+        path: 'profile',
+        name: 'Profile',
+        components: {
+          default: Profile,
+          sidebar: Sidebar,
+        },
+        children: [
+          {
+            path: '',
+            name: 'personal-info',
+            component: PersonalInformationTab,
+          },
+          {
+            path: 'security',
+            name: 'security',
+            component: SecurityTab,
+          },
+        ],
+      },
     ],
   },
   {
     path: '/login',
-    component: () => import("@/views/Login.vue"),
-    name: "login"
+    name: "login",
+    component: Login,
   },
   {
     path: "/signup",
     name: "signup",
-    component: () => import("@/views/Signup.vue")
-  },
-  {
-    path: "/splash",
-    name: "splash",
-    component: () => import("@/components/SplashScreen.vue")
+    component: Signup,
   },
   {
     path: "/:pathMatch(.*)*",
     name: 'not-found',
-    component: NotFound
+    component: NotFound,
   }
 ]
 

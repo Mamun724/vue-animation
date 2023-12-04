@@ -1,5 +1,5 @@
 <template>
-<h1>Memories</h1>
+  <router-view/>
 </template>
 
 <script setup>

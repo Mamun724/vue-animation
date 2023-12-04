@@ -4,26 +4,26 @@
     <v-card-text>
       <v-form @submit.prevent="updateProfile">
         <v-text-field
-            v-model="user.fullName"
-            label="Full Name*"
-            :rules="[rules.required, rules.minLength, rules.maxLength]"/>
+          v-model="user.fullName"
+          label="Full Name*"
+          :rules="[rules.required, rules.minLength, rules.maxLength]"/>
         <v-text-field
-            v-model="user.username"
-            label="Username*"
-            :rules="[rules.required, rules.minLength, rules.maxLength]"
-            :readonly="true"/>
+          v-model="user.username"
+          label="Username*"
+          :rules="[rules.required, rules.minLength, rules.maxLength]"
+          :readonly="true"/>
         <v-text-field
-            v-model="user.email"
-            label="Email*"
-            type="email"
-            :rules="[rules.required, rules.minLength, rules.email, rules.maxLength]"/>
+          v-model="user.email"
+          label="Email*"
+          type="email"
+          :rules="[rules.required, rules.minLength, rules.email, rules.maxLength]"/>
         <div class="text-end">
           <v-btn type="submit">Update</v-btn>
           <v-btn
-              type="button"
-              class="ml-3"
-              variant="outlined"
-              @click="$emit('close')">Cancel
+            type="button"
+            class="ml-3"
+            variant="outlined"
+            @click="$emit('close')">Cancel
           </v-btn>
         </div>
       </v-form>

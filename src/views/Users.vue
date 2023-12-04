@@ -1,5 +1,5 @@
 <template>
-  <h1>404 Not found</h1>
+  <h1>Users</h1>
 </template>
 
 <script setup>

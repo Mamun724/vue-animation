@@ -4,7 +4,7 @@
       <AppBar v-model:openNavDrawer="show"/>
     </v-app-bar>
     <v-navigation-drawer v-model="show">
-      <Sidebar/>
+      <router-view name="sidebar"></router-view>
     </v-navigation-drawer>
     <v-main>
       <router-view/>
@@ -15,7 +15,6 @@
 <script setup>
 import {ref} from "vue";
 import AppBar from "@/components/AppBar.vue";
-import Sidebar from "@/components/Sidebar.vue";
 import {useStore} from "vuex";
 
 const show = ref(null);

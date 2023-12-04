@@ -1,5 +1,5 @@
 <template>
-<h1>Assets</h1>
+  <h1>Project Settings</h1>
 </template>
 
 <script setup>
